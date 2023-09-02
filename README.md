@@ -45,3 +45,19 @@ git clone https://github.com/alokshandilya/nixos-install-scripts.git
 ```
 
 all scripts are executable but still have a glance on the commands and **modify** accordingly
+
+```sh
+./1-format_mount.sh
+```
+
+- run 🏃`./1-format_mount.sh`
+  - formats the partitions
+  - makes btrfs subvolumes
+  - mounts the partitions
+  - generates fstab based on UUIDs _(remove subvolid later from `/etc/fstab`)_
+
+## Install NIX-OS
+
+- `nixos-generate-config --root /mnt`
+- `nvim /mnt/etc/nixos/configuration.nix`, manually add mount options
+- `nixos-install`
